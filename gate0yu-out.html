@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扫码结果</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        img{
+            height: 90px;
+            width: 90;
+            margin:0 auto;
+        }
+        div{
+            width:390px;
+            margin-left:auto;
+            margin-right: auto;
+            text-align: center;
+            font-family:"SimHei", "Times New Roman", "宋体", Times, serif;
+
+        }
+        .content{
+            font-size: 20px;
+        }
+        .pic{
+            margin-top: 50px;
+        }
+        .student{
+            margin-top:25px;
+            font-weight: bold;
+        }
+        .success{
+            margin-top: 36px;
+            font-weight: bold;
+        }
+        .time{
+            margin-top: 45px;
+            color:rgb(137,136,141)
+        }
+        #realtime{
+            margin-top: 10px;
+            color:rgb(245,49,33)
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="pic">
+            <img src="./logo.jpg" alt="logo">
+        </div>
+        <div class="student">学生</div>
+        <div class="success">余振鹏，验证成功，一路平安。</div>
+        <div class="time">本次扫码时间：</div>
+        <div id="realtime"></div>
+    </div>
+    <script type="text/javascript">
+        function  getD1(){
+            var date=new Date();
+            var year = date.getFullYear()
+            var month = date.getMonth()+1
+            var day = date.getDate()
+            var hour = date.getHours()
+            var minute = date.getMinutes()
+            var second = date.getSeconds()
+
+            if(month<10) month="0"+month
+			if(day<10) day="0"+day
+			if(hour<10) hour="0"+hour
+			if(minute<10) minute="0"+minute
+			if(second<10) second="0"+second
+
+            var da = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second
+            var div1=document.getElementById("realtime")
+            div1.innerHTML = da
+        }
+        setInterval("getD1();",1000)
+    </script>
+</body>
+</html>
